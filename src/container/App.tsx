@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
-import styled, { ThemeProvider } from 'styled-components';
+import styled from 'styled-components';
 
 import Loading from './Loading';
+import Name from './Name';
 
 const Wrapper = styled.div`
 	width: 100vw;
@@ -23,10 +24,15 @@ const Wrapper = styled.div`
 
 const App = () => {
 	const [isLoading, setIsLoading] = useState<boolean>(true);
+	const [isExited, setIsExited] = useState<boolean>(false);
 
 	return (
 		<Wrapper>
-			<AnimatePresence>
+			<AnimatePresence
+				onExitComplete={() => {
+					setIsExited(true);
+				}}
+			>
 				{isLoading && (
 					<Loading
 						onComplete={() => {
@@ -35,6 +41,7 @@ const App = () => {
 					/>
 				)}
 			</AnimatePresence>
+			{isExited && <Name />}
 		</Wrapper>
 	);
 };

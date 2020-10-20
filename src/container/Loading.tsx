@@ -78,7 +78,7 @@ const Loading: FC<Props> = ({ onComplete }) => {
 			y: 0,
 			opacity: 1,
 			transition: {
-				duration: 1,
+				duration: 0.5,
 			},
 		},
 	};
@@ -90,13 +90,6 @@ const Loading: FC<Props> = ({ onComplete }) => {
 				animate="visible"
 				exit="exit"
 				variants={grid}
-				whileHover={{
-					scale: 1.1,
-				}}
-				whileTap={{
-					scale: 0.8,
-					padding: '1.5em',
-				}}
 				onAnimationComplete={onComplete}
 			>
 				{Array.from({ length: 4 }).map((_, i) => (
