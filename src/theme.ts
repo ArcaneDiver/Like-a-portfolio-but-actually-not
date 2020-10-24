@@ -12,15 +12,19 @@ export const theme: DefaultTheme = {
 };
 
 export const GlobalStyles = createGlobalStyle`    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
     *,
     *::before,
     *::after {
         box-sizing: inherit;
     }
-    html {
-        box-sizing: border-box;
+
+    body {
         font-size: 16px;
-        margin: 0;
-        padding: 0;
     }
 `;

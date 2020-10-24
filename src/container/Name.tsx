@@ -2,6 +2,8 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { motion, Variants } from 'framer-motion';
 import styled from 'styled-components';
 
+import useWindowDimensions from '../components/useWindowDimensions';
+
 const Wrapper = styled(motion.div)`
 	display: flex;
 	align-items: center;
@@ -22,6 +24,8 @@ const Text = styled(motion.svg)`
 `;
 
 const Name = () => {
+	const { width } = useWindowDimensions();
+
 	const wrapper: Variants = {
 		hidden: {
 			clipPath: 'circle(0%)',
@@ -41,7 +45,7 @@ const Name = () => {
 			pathLength: 0,
 		},
 		show: {
-			pathLength: 2,
+			pathLength: width / 738,
 			transition: {
 				default: { duration: 2, ease: 'easeInOut' },
 			},
